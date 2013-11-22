@@ -114,15 +114,20 @@ ExpressStaticGenerator.prototype.app = function app() {
 
   this.template('_app.js', 'app.js');
   this.copy('routes/_index.js', 'routes/index.js');
+
   this.template('_package.json', 'package.json');
-  this.copy('_README.md', 'README.md');
-  this.copy('e2e/_e2eSpec.js', 'e2e/e2eSpec.js');
-  this.copy('_Gruntfile.js', 'Gruntfile.js');
   this.copy('_bower.json', 'bower.json');
-  this.copy('_.gitignore', '.gitignore');
+
+  this.copy('e2e/_e2eSpec.js', 'e2e/e2eSpec.js');
+  this.copy('_karma-e2e.conf.js', 'karma-e2e.conf.js');
+
+  this.copy('_Gruntfile.js', 'Gruntfile.js');
+
 };
 
 ExpressStaticGenerator.prototype.projectfiles = function projectfiles() {
   this.copy('editorconfig', '.editorconfig');
   this.copy('jshintrc', '.jshintrc');
+  this.copy('_.gitignore', '.gitignore');
+  this.copy('_README.md', 'README.md');
 };

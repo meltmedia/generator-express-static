@@ -1,21 +1,27 @@
 {
   "name": "generator-express-static",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A generator for Yeoman",
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "express-static"
   ],
-  "homepage": "https://github.com/jacobheun/generator-express-static",
-  "bugs": "https://github.com/jacobheun/generator-express-static/issues",
+  "homepage": "https://github.com/meltmedia/generator-express-static",
+  "bugs": "https://github.com/meltmedia/generator-express-static/issues",
   "author": {
     "name": "Jacob Heun",
     "email": "jake.heun@meltmedia.com",
     "url": "https://github.com/jacobheun"
   },
+  "contributors": [{
+    "name": "Richard Torruellas",
+    "email": "rtorruellas@gmail.com",
+    "url": "https://github.com/rtorr"
+  }],
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/jacobheun/generator-express-static.git"
+    "url": "git://github.com/meltmedia/generator-express-static.git"
   },
   "scripts": {
     "test": "mocha"
