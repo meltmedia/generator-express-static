@@ -1,10 +1,10 @@
 module.exports = function (grunt) {
 
-  grunt.loadNpmTasks('grunt-karma');
-  grunt.loadNpmTasks('grunt-exec');
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-develop');
-  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-exec');
+  grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-mkdir');
 
   grunt.initConfig({
@@ -72,7 +72,7 @@ module.exports = function (grunt) {
     'karma:e2e'
   ]);
 
-  grunt.registerTask('e', [
+  grunt.registerTask('e2e', [
     'karma:e2e'
   ]);
 
