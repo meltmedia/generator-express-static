@@ -1,6 +1,7 @@
 {
-  "name": "package",
+  "name": "<%= siteName%>",
   "version": "0.0.0",
-  "dependencies": {}
+  "dependencies": {},
+  "directory": "public"
 }
 

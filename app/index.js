@@ -22,26 +22,104 @@ ExpressStaticGenerator.prototype.askFor = function askFor() {
   // have Yeoman greet the user.
   console.log(this.yeoman);
 
-  var prompts = [{
-    type: 'confirm',
-    name: 'someOption',
-    message: 'Would you like to enable this option?',
-    default: true
-  }];
+  var prompts = [
+    {
+      name: 'siteName',
+      message: 'What is the name of the site you are creating?'
+    },
+    {
+      name: 'viewEngine',
+      message: 'Which view engine would you like to use?',
+      type: 'list',
+      default: 'jade',
+      choices: [
+        {
+          name: 'jade',
+          value: 'jade'
+        },
+        {
+          name: 'handlebars',
+          value: 'hbs'
+        }
+      ]
+    },
+    {
+      name: 'cssEngine',
+      message: 'Which css engine would you like to use?',
+      type: 'list',
+      default: 'stylus',
+      choices: [
+        {
+          name: 'stylus',
+          value: 'stylus'
+        },
+        {
+          name: 'sass',
+          value: 'sass'
+        },
+        {
+          name: 'less',
+          value: 'less'
+        },
+        {
+          name: 'css',
+          value: 'css'
+        }
+      ]
+    }
+  ];
 
   this.prompt(prompts, function (props) {
-    this.someOption = props.someOption;
+
+    this.siteName = props.siteName;
+    this.viewEngine = props.viewEngine;
+    this.cssEngine = props.cssEngine;
 
     cb();
   }.bind(this));
 };
 
 ExpressStaticGenerator.prototype.app = function app() {
-  this.mkdir('app');
-  this.mkdir('app/templates');
+  this.mkdir('e2e');
+  this.mkdir('public');
+  this.mkdir('public/images');
+  this.mkdir('public/stylesheets');
+  this.mkdir('public/javascripts');
+  this.mkdir('routes');
+  this.mkdir('views');
+  this.mkdir('views/partials');
 
-  this.copy('_package.json', 'package.json');
+  switch (this.cssEngine){
+    case 'sass':
+      this.copy('public/stylesheets/_style.sass', 'public/stylesheets/style.sass');
+      break;
+    case 'less':
+      this.copy('public/stylesheets/_style.less', 'public/stylesheets/style.less');
+      break;
+    case 'stylus':
+      this.copy('public/stylesheets/_style.styl', 'public/stylesheets/style.styl');
+      break;
+    default:
+     this.copy('public/stylesheets/_style.css', 'public/stylesheets/style.css');
+  }
+
+  switch (this.viewEngine){
+    case 'hbs':
+      this.copy('views/_index.html', 'views/index.html');
+      break;
+    default:
+      this.copy('views/_layout.jade', 'views/layout.jade');
+      this.copy('views/_index.jade', 'views/index.jade');
+  }
+
+  this.template('_app.js', 'app.js');
+  this.copy('routes/_index.js', 'routes/index.js');
+  this.template('_package.json', 'package.json');
+  this.copy('_README.md', 'README.md');
+  this.copy('e2e/_e2eSpec.js', 'e2e/e2eSpec.js');
+  this.copy('_Gruntfile.js', 'Gruntfile.js');
   this.copy('_bower.json', 'bower.json');
+  this.copy('_.gitignore', '.gitignore');
 };
 
 ExpressStaticGenerator.prototype.projectfiles = function projectfiles() {
