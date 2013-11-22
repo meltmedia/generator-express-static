@@ -1,9 +1,10 @@
 {
-  "name": "<%= siteName%>",
+  "name": "<%= siteName.replace(/\s/g,'-')%>",
   "version": "0.0.0",
   "private": false,
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "postinstall": "grunt"
   },
   "dependencies": {
     "express": "3.4.4",

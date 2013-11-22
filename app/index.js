@@ -25,7 +25,8 @@ ExpressStaticGenerator.prototype.askFor = function askFor() {
   var prompts = [
     {
       name: 'siteName',
-      message: 'What is the name of the site you are creating?'
+      message: 'What is the name of the site you are creating?',
+      default: 'express-static'
     },
     {
       name: 'viewEngine',
@@ -100,7 +101,7 @@ ExpressStaticGenerator.prototype.app = function app() {
       this.copy('public/stylesheets/_style.styl', 'public/stylesheets/style.styl');
       break;
     default:
-     this.copy('public/stylesheets/_style.css', 'public/stylesheets/style.css');
+      this.copy('public/stylesheets/_style.css', 'public/stylesheets/style.css');
   }
 
   switch (this.viewEngine){
@@ -129,5 +130,6 @@ ExpressStaticGenerator.prototype.projectfiles = function projectfiles() {
   this.copy('editorconfig', '.editorconfig');
   this.copy('jshintrc', '.jshintrc');
   this.copy('gitignore', '.gitignore');
+  this.copy('bowerrc', '.bowerrc');
   this.copy('_README.md', 'README.md');
 };

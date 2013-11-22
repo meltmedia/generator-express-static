@@ -1,7 +1,6 @@
 {
-  "name": "<%= siteName%>",
+  "name": "<%= siteName.replace(/\s/g,'-')%>",
   "version": "0.0.0",
-  "dependencies": {},
-  "directory": "public"
+  "dependencies": {}
 }
 

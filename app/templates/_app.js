@@ -10,18 +10,8 @@ var routes = require('./routes');
 var http = require('http');
 var path = require('path');
 var writer = require('express-writer');
-<% if (viewEngine != 'jade') { %>
-var cons = require('consilidate');
-<% } %>
-<% if (cssEngine == 'stylus') { %>
-var stylus = require('stylus');
-<% } %>
-<% if (cssEngine == 'sass') { %>
-var stylus = require('node-sass');
-<% } %>
-<% if (cssEngine == 'less') { %>
-var lessMiddleware = require('less-middleware');
-<% } %>
+<% if (viewEngine != 'jade') { %>var cons = require('consolidate');<% } %>
+<% if (cssEngine == 'stylus') { %>var stylus = require('stylus');<% } %> <% if (cssEngine == 'sass') { %>var stylus = require('node-sass');<% } %> <% if (cssEngine == 'less') { %>var lessMiddleware = require('less-middleware');<% } %>
 
 var app = express();
 var server;

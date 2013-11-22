@@ -25,6 +25,7 @@ describe('express-static generator', function () {
       '.jshintrc',
       '.editorconfig',
       '.gitignore',
+      '.bowerrc',
       'README.md',
       'karma-e2e.conf.js',
       'package.json',
@@ -34,7 +35,9 @@ describe('express-static generator', function () {
       'e2e/e2eSpec.js'
     ];
 
-    helpers.mockPrompt(this.app, {});
+    helpers.mockPrompt(this.app, {
+      'siteName': 'express-static'
+    });
 
     this.app.options['skip-install'] = true;
     this.app.run({}, function () {
@@ -52,7 +55,8 @@ describe('express-static generator', function () {
     ];
 
     helpers.mockPrompt(this.app, {
-      'viewEngine': 'jade'
+      'viewEngine': 'jade',
+      'siteName': 'express-static'
     });
     this.app.options['skip-install'] = true;
     this.app.run({}, function () {
@@ -69,7 +73,8 @@ describe('express-static generator', function () {
     ];
 
     helpers.mockPrompt(this.app, {
-      'viewEngine': 'hbs'
+      'viewEngine': 'hbs',
+      'siteName': 'express-static'
     });
     this.app.options['skip-install'] = true;
     this.app.run({}, function () {
@@ -86,7 +91,8 @@ describe('express-static generator', function () {
     ];
 
     helpers.mockPrompt(this.app, {
-      'cssEngine': 'stylus'
+      'cssEngine': 'stylus',
+      'siteName': 'express-static'
     });
     this.app.options['skip-install'] = true;
     this.app.run({}, function () {
@@ -103,7 +109,8 @@ describe('express-static generator', function () {
     ];
 
     helpers.mockPrompt(this.app, {
-      'cssEngine': 'sass'
+      'cssEngine': 'sass',
+      'siteName': 'express-static'
     });
     this.app.options['skip-install'] = true;
     this.app.run({}, function () {
@@ -120,7 +127,8 @@ describe('express-static generator', function () {
     ];
 
     helpers.mockPrompt(this.app, {
-      'cssEngine': 'less'
+      'cssEngine': 'less',
+      'siteName': 'express-static'
     });
     this.app.options['skip-install'] = true;
     this.app.run({}, function () {
@@ -137,7 +145,8 @@ describe('express-static generator', function () {
     ];
 
     helpers.mockPrompt(this.app, {
-      'cssEngine': 'css'
+      'cssEngine': 'css',
+      'siteName': 'express-static'
     });
     this.app.options['skip-install'] = true;
     this.app.run({}, function () {
