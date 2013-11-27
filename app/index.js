@@ -92,7 +92,9 @@ ExpressStaticGenerator.prototype.app = function app() {
 
   switch (this.cssEngine){
     case 'sass':
-      this.copy('public/stylesheets/_style.sass', 'public/stylesheets/style.sass');
+      this.mkdir('resources');
+      this.mkdir('resources/stylesheets');
+      this.copy('public/stylesheets/_style.scss', 'resources/stylesheets/style.scss');
       break;
     case 'less':
       this.copy('public/stylesheets/_style.less', 'public/stylesheets/style.less');
