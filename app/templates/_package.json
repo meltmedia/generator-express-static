@@ -9,8 +9,8 @@
   "dependencies": {
     "express": "3.4.4",
     "express-writer": "0.0.3",
-    <% if (viewEngine != 'jade') { %>"consolidate": "~0.9.1",<% if (viewEngine == 'hbs') { %>
-    "handlebars": "1.1.2",<% } %><% } else { %>"jade": "*",<% } %>
+    <% if (viewEngine != 'jade') { %>"consolidate": "~0.9.1",<% if (viewEngine == 'hbs') { %>"handlebars": "1.1.2",<% } %>
+    <% } else { %>"jade": "*",<% } %>
     <% if (cssEngine == 'sass'){ %>"node-sass": "~0.7.0",<% } else if (cssEngine == 'less') { %>"less-middleware": "~0.1.14",<% } else { %>"stylus": "~0.40.3",<% } %>
     "matchdep": "~0.1.2",
     "mkdirp": "~0.3.5",

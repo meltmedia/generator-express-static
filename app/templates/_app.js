@@ -11,6 +11,11 @@ var http = require('http');
 var path = require('path');
 var writer = require('express-writer');
 <% if (viewEngine != 'jade') { %>var cons = require('consolidate');<% } %>
+<% if (viewEngine == 'hbs') { %>
+var fs = require('fs');
+var hbs = require('handlebars');
+var partials = "./views/partials/";
+<% } %>
 <% if (cssEngine == 'stylus') { %>var stylus = require('stylus');<% } %> <% if (cssEngine == 'sass') { %>var sass = require('node-sass');<% } %> <% if (cssEngine == 'less') { %>var lessMiddleware = require('less-middleware');<% } %>
 
 var app = express();
@@ -19,10 +24,19 @@ var server;
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
+
 <% if (viewEngine == 'hbs') { %>
-// assign the swig engine to .html files
+// Assign the swig engine to .html files
 app.engine('html', cons.handlebars);
 app.set('view engine', 'html');
+
+// Register partials
+fs.readdirSync(partials).forEach(function (file) {
+  var source = fs.readFileSync(partials + file, "utf8"),
+      partial = /(.+)\.html/.exec(file).pop();
+
+  hbs.registerPartial(partial, source);
+});
 <% } else {%>
 app.set('view engine', 'jade');
 <% } %>
