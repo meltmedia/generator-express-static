@@ -6,6 +6,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-mkdir');
+  grunt.loadNpmTasks('grunt-nodemon');
 
   grunt.initConfig({
     clean: ["./dist"],
@@ -62,6 +63,19 @@ module.exports = function (grunt) {
           }
         ]
       }
+    },
+    nodemon: {
+      dev: {
+        options: {
+          file: 'app.js',
+          nodeArgs: ['--debug'],
+          ignoredFiles: ['node_modules/**'],
+          watchedFolders: ['public','resources','routes','views'],
+          env: {
+            PORT: '3000'
+          }
+        }
+      }
     }
   });
 
@@ -82,6 +96,13 @@ module.exports = function (grunt) {
     'mkdir:dist',
     'karma:e2e',
     'copy:dist'
+  ]);
+
+  /**
+   * Run nodemon dev to execute app.js development mode and auto-reload node app on file changes
+   */
+  grunt.registerTask('watch', [
+    'nodemon:dev'
   ]);
 
   /**
