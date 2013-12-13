@@ -16,7 +16,7 @@ var fs = require('fs');
 var hbs = require('handlebars');
 var partials = "./views/partials/";
 <% } %>
-<% if (cssEngine == 'stylus') { %>var stylus = require('stylus');<% } %> <% if (cssEngine == 'sass') { %>var sass = require('node-sass');<% } %> <% if (cssEngine == 'less') { %>var lessMiddleware = require('less-middleware');<% } %>
+<% if (cssEngine == 'stylus') { %>var stylus = require('stylus');<% } %><% if (cssEngine == 'sass') { %>var sass = require('node-sass');<% } %><% if (cssEngine == 'less') { %>var lessMiddleware = require('less-middleware');<% } %>
 
 var app = express();
 var server;
