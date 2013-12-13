@@ -86,19 +86,21 @@ ExpressStaticGenerator.prototype.app = function app() {
   this.mkdir('public/images');
   this.mkdir('public/stylesheets');
   this.mkdir('public/javascripts');
+  this.mkdir('resources');
+  this.mkdir('resources/stylesheets');
   this.mkdir('routes');
   this.mkdir('views');
   this.mkdir('views/partials');
 
   switch (this.cssEngine){
     case 'sass':
-      this.copy('public/stylesheets/_style.sass', 'public/stylesheets/style.sass');
+      this.copy('public/stylesheets/_style.scss', 'resources/stylesheets/style.scss');
       break;
     case 'less':
-      this.copy('public/stylesheets/_style.less', 'public/stylesheets/style.less');
+      this.copy('public/stylesheets/_style.less', 'resources/stylesheets/style.less');
       break;
     case 'stylus':
-      this.copy('public/stylesheets/_style.styl', 'public/stylesheets/style.styl');
+      this.copy('public/stylesheets/_style.styl', 'resources/stylesheets/style.styl');
       break;
     default:
       this.copy('public/stylesheets/_style.css', 'public/stylesheets/style.css');

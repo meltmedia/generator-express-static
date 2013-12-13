@@ -80,8 +80,8 @@ module.exports = function (grunt) {
     'develop:distServer',
     'clean',
     'mkdir:dist',
-    'copy:dist',
-    'karma:e2e'
+    'karma:e2e',
+    'copy:dist'
   ]);
 
   /**
