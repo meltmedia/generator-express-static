@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "express": "3.4.4",
-    "express-writer": "0.0.3",
+    "express-writer": "0.0.4",
     <% if (viewEngine != 'jade') { %>"consolidate": "~0.9.1",<% } else { %>"jade": "*",<% } %>
     <% if (viewEngine == 'hbs') { %>"handlebars": "1.1.2",<% } %>
     <% if (cssEngine == 'sass'){ %>"node-sass": "~0.7.0",<% } else if (cssEngine == 'less') { %>"less-middleware": "~0.1.14",<% } else { %>"stylus": "~0.40.3",<% } %>
